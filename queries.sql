@@ -71,9 +71,13 @@ BEGIN;
 
 DELETE FROM animals;
 
+-- Verification of Deletion
+SELECT * FROM animals; -- Should return no rows, signifying successful deletion.
+
 ROLLBACK;
 
-SELECT * FROM animals
+-- Verification of Rollback
+SELECT * FROM animals; -- Should return all initial rows, proving successful rollback.
 
 --------------------------------------SAVEPOINT-------------------------------------------------
 
@@ -100,9 +104,8 @@ SELECT COUNT(*) AS no_escape_count FROM animals WHERE escape_attempts = 0;
 
 SELECT AVG(weight_kg) AS average_weight FROM animals;
 
-SELECT name, escape_attempts
-FROM animals
-WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals);
+SELECT neutered, MAX(escape_attempts) FROM animals
+GROUP BY neutered;
 
 SELECT species, MIN(weight_kg) AS min_weight, MAX(weight_kg) AS max_weight
 FROM animals
