@@ -56,3 +56,5 @@ CREATE TABLE visits (
   visit_date DATE,
   PRIMARY KEY (animal_id, vet_id, visit_date)
 );
+
+ALTER TABLE visits RENAME COLUMN date_of_visit TO visit_date;
