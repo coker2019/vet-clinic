@@ -58,3 +58,5 @@ CREATE TABLE visits (
 );
 
 ALTER TABLE visits RENAME COLUMN date_of_visit TO visit_date;
+
+CREATE INDEX ON visits (animal_id);
