@@ -59,3 +59,4 @@ CREATE TABLE visits (
 
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+ALTER TABLE visits RENAME COLUMN date_of_visit TO visit_date;
